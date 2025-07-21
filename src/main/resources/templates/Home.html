@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Portal - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+        }
+
+        nav {
+            background-color: #343a40;
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 2em auto;
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/register}">Registration</a>
+    <a th:href="@{/students}">Student List</a>
+</nav>
+
+<!-- Content -->
+<div class="content">
+    <h1>Welcome to the Student Portal</h1>
+    <p>
+        This portal allows students to register for their respective classes, view their roll number,
+        and manage their academic details.
+    </p>
+    <p>
+        Use the navigation links above to register a new student or view the list of registered students.
+    </p>
+</div>
+
+</body>
+</html>

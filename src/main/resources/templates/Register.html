@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+        }
+
+        nav {
+            background-color: #343a40;
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 2em auto;
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.7em;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .status {
+            margin-top: 1em;
+            padding: 1em;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/register}">Registration</a>
+    <a th:href="@{/students}">Student List</a>
+</nav>
+
+<!-- Registration Form -->
+<div class="container">
+    <h2>Student Registration</h2>
+    <form th:action="@{/register}" th:object="${student}" method="post">
+        <label for="name">Name</label>
+        <input type="text" th:field="*{name}" id="name" required />
+
+        <label for="std">Standard</label>
+        <input type="text" th:field="*{std}" id="std" required />
+
+        <label for="rollNo">Roll Number</label>
+        <input type="number" th:field="*{rollNo}" id="rollNo" required />
+
+        <input type="submit" value="Register" />
+    </form>
+
+    <div th:if="${status != null}" class="status">
+        <p th:text="${status.status}"></p>
+    </div>
+</div>
+
+</body>
+</html>
